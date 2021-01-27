@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin view promotions' do
+
   scenario 'successfully' do
     # Arrange 
     Promotion.create!(name: 'Natal', description: 'Promoção de Natal',
@@ -46,9 +47,13 @@ feature 'Admin view promotions' do
   end
 
   scenario 'and no promotion are created' do
+    # Arrange
+
+    # Act
     visit root_path
     click_on 'Promoções'
 
+    # Assert
     expect(page).to have_content('Nenhuma promoção cadastrada')
   end
 
