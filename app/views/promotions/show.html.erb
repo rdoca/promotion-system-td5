@@ -1,3 +1,5 @@
+<%= link_to 'Voltar', promotions_path %>
+
 <h1><%= @promotion.name %></h1>
 <dl>
   <dt>Descrição</dt>
@@ -12,4 +14,4 @@
   <dd><%= @promotion.coupon_quantity %></dd>
 </dl>
 
-<%= link_to 'Voltar', promotions_path %>
+<%= link_to 'Gerar cupons', generate_coupons_promotion_path(@promotion), method: :post %>

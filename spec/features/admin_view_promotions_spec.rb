@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Admin view promotions' do
-
   scenario 'successfully' do
     # Arrange 
     Promotion.create!(name: 'Natal', description: 'Promoção de Natal',
