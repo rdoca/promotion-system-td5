@@ -1,4 +1,6 @@
 class PromotionsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @promotions = Promotion.all
   end
@@ -16,6 +18,7 @@ class PromotionsController < ApplicationController
                                       :code, :discount_rate,
                                       :coupon_quantity, :expiration_date)
     @promotion = Promotion.new(promotion_params)
+    @promotion.user = current_user
 
     if @promotion.save
       redirect_to @promotion
@@ -29,4 +32,5 @@ class PromotionsController < ApplicationController
     @promotion.generate_coupons!
     redirect_to @promotion, notice: t('.success')
   end
+
 end
