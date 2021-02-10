@@ -16,6 +16,10 @@
   <dd><%= @promotion.coupon_quantity %></dd>
 </dl>
 
+<% if current_user == @promotion %>
+  <%= link_to 'Aprovar Promoção,  approve_promotion__path, method:  %>
+<% end %>
+
 <%= link_to 'Gerar cupons', generate_coupons_promotion_path(@promotion), method: :post %>
 
 <% @promotion.coupons.each do |coupon| %>
